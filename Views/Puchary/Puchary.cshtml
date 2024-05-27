@@ -1,28 +1,68 @@
-@model List<Puchary>
-
+@model List<Kluby.Models.Puchary>
 @{
     ViewBag.Title = "Puchary";
 }
 
 <h2>Puchary</h2>
 
-<table class="table">
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #ffffff;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #37c754;
+    }
+    tr:nth-child(even) {
+        background-color: #0987db;
+    }
+    tr:hover {
+        background-color: #37c754;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<table>
     <thead>
         <tr>
-            <th>@Html.DisplayFor(model => model[0].id)</th>
-            <th>@Html.DisplayFor(model => model[0].n)</th>
-            <th>@Html.DisplayFor(model => model[0].m)</th>
-            <th>@Html.DisplayFor(model => model[0].r)</th>
+            <th>
+                <a asp-action="Puchary" asp-route-sortOrder="id_asc">ID ▲</a> |
+                <a asp-action="Puchary" asp-route-sortOrder="id_desc">ID ▼</a>
+            </th>
+            <th>
+                <a asp-action="Puchary" asp-route-sortOrder="name_asc">Nazwa Turnieju ▲</a> |
+                <a asp-action="Puchary" asp-route-sortOrder="name_desc">Nazwa Turnieju ▼</a>
+            </th>
+            <th>
+                <a asp-action="Puchary" asp-route-sortOrder="place_asc">Miejsce ▲</a> |
+                <a asp-action="Puchary" asp-route-sortOrder="place_desc">Miejsce ▼</a>
+            </th>
+            <th>
+                <a asp-action="Puchary" asp-route-sortOrder="year_asc">Rok Zdobycia ▲</a> |
+                <a asp-action="Puchary" asp-route-sortOrder="year_desc">Rok Zdobycia ▼</a>
+            </th>
         </tr>
     </thead>
     <tbody>
-    @for (int i = 1; i < Model.Count; i++) {
-        <tr>
-            <td>@Html.DisplayFor(model => Model[i].id_pucharu)</td>
-            <td>@Html.DisplayFor(model => Model[i].Nazwa_Turnieju)</td>
-            <td>@Html.DisplayFor(model => Model[i].Miejsce)</td>
-            <td>@Html.DisplayFor(model => Model[i].Rok_zdobycia)</td>
-        </tr>
-    }
+        @foreach (var puchar in Model)
+        {
+            <tr>
+                <td>@puchar.id_pucharu</td>
+                <td>@puchar.Nazwa_Turnieju</td>
+                <td>@puchar.Miejsce</td>
+                <td>@puchar.Rok_zdobycia</td>
+            </tr>
+        }
     </tbody>
 </table>

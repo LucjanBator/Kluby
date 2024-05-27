@@ -1,35 +1,78 @@
-@model List<Trenerzy>
-
+@model List<Kluby.Models.Trenerzy>
 @{
-    ViewBag.Title = "Trenerzy";
+    ViewData["Title"] = "Trenerzy";
 }
 
-<h2>Trenerzy</h2>
+<h1>Lista Trenerów</h1>
 
-<table class="table">
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #ffffff;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #37c754;
+    }
+    tr:nth-child(even) {
+        background-color: #0987db;
+    }
+    tr:hover {
+        background-color: #37c754;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<table>
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Imię</th>
-            <th>Nazwisko</th>
             <th>
-                @Html.ActionLink("Wiek ▲", "Trenerzy", new { sortOrder = "age_asc" }) |
-                @Html.ActionLink("Wiek ▼", "Trenerzy", new { sortOrder = "age_desc" })
+                <a asp-action="Trenerzy" asp-route-sortOrder="id_asc">ID ▲</a> |
+                <a asp-action="Trenerzy" asp-route-sortOrder="id_desc">ID ▼</a>
             </th>
-            <th>Rok dołączenia do klubu</th>
-            <th>Rok zakończenia pracy w klubie</th>
+            <th>
+                <a asp-action="Trenerzy" asp-route-sortOrder="name_asc">Imię ▲</a> |
+                <a asp-action="Trenerzy" asp-route-sortOrder="name_desc">Imię ▼</a>
+            </th>
+            <th>
+                <a asp-action="Trenerzy" asp-route-sortOrder="surname_asc">Nazwisko ▲</a> |
+                <a asp-action="Trenerzy" asp-route-sortOrder="surname_desc">Nazwisko ▼</a>
+            </th>
+            <th>
+                <a asp-action="Trenerzy" asp-route-sortOrder="age_asc">Wiek ▲</a> |
+                <a asp-action="Trenerzy" asp-route-sortOrder="age_desc">Wiek ▼</a>
+            </th>
+            <th>
+                <a asp-action="Trenerzy" asp-route-sortOrder="year_join_asc">Rok dołączenia ▲</a> |
+                <a asp-action="Trenerzy" asp-route-sortOrder="year_join_desc">Rok dołączenia ▼</a>
+            </th>
+            <th>
+                <a asp-action="Trenerzy" asp-route-sortOrder="year_end_asc">Rok zakończenia ▲</a> |
+                <a asp-action="Trenerzy" asp-route-sortOrder="year_end_desc">Rok zakończenia ▼</a>
+            </th>
         </tr>
     </thead>
     <tbody>
-    @foreach (var trener in Model) {
-        <tr>
-            <td>@Html.DisplayFor(modelItem => trener.id_trenera)</td>
-            <td>@Html.DisplayFor(modelItem => trener.imie)</td>
-            <td>@Html.DisplayFor(modelItem => trener.nazwisko)</td>
-            <td>@Html.DisplayFor(modelItem => trener.wiek)</td>
-            <td>@Html.DisplayFor(modelItem => trener.Rok_dolaczenia_do_klubu)</td>
-            <td>@Html.DisplayFor(modelItem => trener.Rok_zakonczenia_pracy_w_klubie)</td>
-        </tr>
-    }
+        @foreach (var trener in Model)
+        {
+            <tr>
+                <td>@trener.id_trenera</td>
+                <td>@trener.imie</td>
+                <td>@trener.nazwisko</td>
+                <td>@trener.wiek</td>
+                <td>@trener.Rok_dolaczenia_do_klubu</td>
+                <td>@trener.Rok_zakonczenia_pracy_w_klubie</td>
+            </tr>
+        }
     </tbody>
 </table>

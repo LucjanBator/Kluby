@@ -1,32 +1,78 @@
-@model List<Pilkarze>
-
+@model List<Kluby.Models.Pilkarze>
 @{
     ViewBag.Title = "Piłkarze";
 }
 
 <h2>Piłkarze</h2>
 
-<table class="table">
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #ffffff;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #37c754;
+    }
+    tr:nth-child(even) {
+        background-color: #0987db;
+    }
+    tr:hover {
+        background-color: #37c754;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<table>
     <thead>
         <tr>
-            <th>@Html.DisplayFor(model => model[0].id)</th>
-            <th>@Html.DisplayFor(model => model[0].i)</th>
-            <th>@Html.DisplayFor(model => model[0].n)</th>
-            <th>@Html.DisplayFor(model => model[0].w)</th>
-            <th>@Html.DisplayFor(model => model[0].r)</th>
-            <th>@Html.DisplayFor(model => model[0].rr)</th>
+            <th>
+                <a asp-action="Pilkarze" asp-route-sortOrder="id_asc">ID ▲</a> |
+                <a asp-action="Pilkarze" asp-route-sortOrder="id_desc">ID ▼</a>
+            </th>
+            <th>
+                <a asp-action="Pilkarze" asp-route-sortOrder="name_asc">Imię ▲</a> |
+                <a asp-action="Pilkarze" asp-route-sortOrder="name_desc">Imię ▼</a>
+            </th>
+            <th>
+                <a asp-action="Pilkarze" asp-route-sortOrder="surname_asc">Nazwisko ▲</a> |
+                <a asp-action="Pilkarze" asp-route-sortOrder="surname_desc">Nazwisko ▼</a>
+            </th>
+            <th>
+                <a asp-action="Pilkarze" asp-route-sortOrder="age_asc">Wiek ▲</a> |
+                <a asp-action="Pilkarze" asp-route-sortOrder="age_desc">Wiek ▼</a>
+            </th>
+            <th>
+                <a asp-action="Pilkarze" asp-route-sortOrder="year_join_asc">Rok dołączenia ▲</a> |
+                <a asp-action="Pilkarze" asp-route-sortOrder="year_join_desc">Rok dołączenia ▼</a>
+            </th>
+            <th>
+                <a asp-action="Pilkarze" asp-route-sortOrder="year_end_asc">Rok zakończenia ▲</a> |
+                <a asp-action="Pilkarze" asp-route-sortOrder="year_end_desc">Rok zakończenia ▼</a>
+            </th>
         </tr>
     </thead>
     <tbody>
-    @for (int i = 1; i < Model.Count; i++) {
-        <tr>
-            <td>@Html.DisplayFor(model => Model[i].id_pilkarza)</td>
-            <td>@Html.DisplayFor(model => Model[i].imie)</td>
-            <td>@Html.DisplayFor(model => Model[i].nazwisko)</td>
-            <td>@Html.DisplayFor(model => Model[i].wiek)</td>
-            <td>@Html.DisplayFor(model => Model[i].Rok_dolaczenia_do_klubu)</td>
-            <td>@Html.DisplayFor(model => Model[i].Rok_zakonczenia_pracy_w_klubie)</td>
-        </tr>
-    }
+        @foreach (var pilkarz in Model)
+        {
+            <tr>
+                <td>@pilkarz.id_pilkarza</td>
+                <td>@pilkarz.imie</td>
+                <td>@pilkarz.nazwisko</td>
+                <td>@pilkarz.wiek</td>
+                <td>@pilkarz.Rok_dolaczenia_do_klubu</td>
+                <td>@pilkarz.Rok_zakonczenia_pracy_w_klubie</td>
+            </tr>
+        }
     </tbody>
 </table>
