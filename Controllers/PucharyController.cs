@@ -26,9 +26,10 @@ public class PucharyController : Controller {
             // Utwórz nowy obiekt Pilkarze z wartościami nagłówka
             var headerPuchary = new Puchary
             {
-                n = headerValues[0],
-                m = headerValues[1],
-                r = headerValues[2]
+                id = headerValues[0],
+                n = headerValues[1],
+                m = headerValues[2],
+                r = headerValues[3]
             };
 
             // Dodaj obiekt nagłówka do listy
@@ -40,9 +41,10 @@ public class PucharyController : Controller {
 
                 var Puchary = new Puchary
                 {
-                    Nazwa_Turnieju = values[0],
-                    Miejsce = values[1],
-                    Rok_zdobycia = int.Parse(values[2])
+                    id_pucharu = int.Parse(values[0]),
+                    Nazwa_Turnieju = values[1],
+                    Miejsce = values[2],
+                    Rok_zdobycia = int.Parse(values[3])
                 };
 
                 data.Add(Puchary);

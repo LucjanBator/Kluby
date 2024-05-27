@@ -27,18 +27,6 @@ public class TrenerzyController : Controller {
             string headerLine = reader.ReadLine();
             string[] headerValues = headerLine.Split(separator);
 
-            // Utwórz nowy obiekt Pilkarze z wartościami nagłówka
-            var headerTrener = new Trenerzy
-            {
-                i = headerValues[0],
-                n = headerValues[1],
-                w = headerValues[2],
-                r = headerValues[3],
-                rr = headerValues[4]
-            };
-
-            // Dodaj obiekt nagłówka do listy
-            data.Add(headerTrener);
             while (!reader.EndOfStream)
             {
                 string line = reader.ReadLine();
@@ -46,11 +34,12 @@ public class TrenerzyController : Controller {
 
                 var trener = new Trenerzy
                 {
-                    imie = values[0],
-                    nazwisko = values[1],
-                    wiek = int.Parse(values[2]),
-                    Rok_dolaczenia_do_klubu = int.Parse(values[3]),
-                    Rok_zakonczenia_pracy_w_klubie = int.Parse(values[4])
+                    id_trenera = int.Parse(values[0]),
+                    imie = values[1],
+                    nazwisko = values[2],
+                    wiek = int.Parse(values[3]),
+                    Rok_dolaczenia_do_klubu = int.Parse(values[4]),
+                    Rok_zakonczenia_pracy_w_klubie = int.Parse(values[5])
                 };
 
                 data.Add(trener);
@@ -61,16 +50,22 @@ public class TrenerzyController : Controller {
     }
 
     [Route("Trenerzy/")]
-    public IActionResult Trenerzy()
-    {
+    public IActionResult Trenerzy(string sortOrder) {
         SetViewDataFromSession();
         var path = Path.Combine(Directory.GetCurrentDirectory(), "Excel", "Trenerzy.csv");
         List<Trenerzy> data = new List<Trenerzy>();
 
-        if (System.IO.File.Exists(path))
-        {
+        if (System.IO.File.Exists(path)) {
             data = ReadCsvFile(path, ';');
         }
+
+        // Sortowanie danych (bez nagłówka)
+        if (sortOrder == "age_asc") {
+            data = data.OrderBy(t => t.wiek).ToList();
+        } else if (sortOrder == "age_desc") {
+            data = data.OrderByDescending(t => t.wiek).ToList();
+        }
+
         return View(data);
     }
 }

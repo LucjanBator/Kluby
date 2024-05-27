@@ -9,21 +9,26 @@
 <table class="table">
     <thead>
         <tr>
-            <th>@Html.DisplayFor(model => model[0].i)</th>
-            <th>@Html.DisplayFor(model => model[0].n)</th>
-            <th>@Html.DisplayFor(model => model[0].w)</th>
-            <th>@Html.DisplayFor(model => model[0].r)</th>
-            <th>@Html.DisplayFor(model => model[0].rr)</th>
+            <th>Id</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>
+                @Html.ActionLink("Wiek ▲", "Trenerzy", new { sortOrder = "age_asc" }) |
+                @Html.ActionLink("Wiek ▼", "Trenerzy", new { sortOrder = "age_desc" })
+            </th>
+            <th>Rok dołączenia do klubu</th>
+            <th>Rok zakończenia pracy w klubie</th>
         </tr>
     </thead>
     <tbody>
-    @for (int i = 1; i < Model.Count; i++) {
+    @foreach (var trener in Model) {
         <tr>
-            <td>@Html.DisplayFor(model => Model[i].imie)</td>
-            <td>@Html.DisplayFor(model => Model[i].nazwisko)</td>
-            <td>@Html.DisplayFor(model => Model[i].wiek)</td>
-            <td>@Html.DisplayFor(model => Model[i].Rok_dolaczenia_do_klubu)</td>
-            <td>@Html.DisplayFor(model => Model[i].Rok_zakonczenia_pracy_w_klubie)</td>
+            <td>@Html.DisplayFor(modelItem => trener.id_trenera)</td>
+            <td>@Html.DisplayFor(modelItem => trener.imie)</td>
+            <td>@Html.DisplayFor(modelItem => trener.nazwisko)</td>
+            <td>@Html.DisplayFor(modelItem => trener.wiek)</td>
+            <td>@Html.DisplayFor(modelItem => trener.Rok_dolaczenia_do_klubu)</td>
+            <td>@Html.DisplayFor(modelItem => trener.Rok_zakonczenia_pracy_w_klubie)</td>
         </tr>
     }
     </tbody>

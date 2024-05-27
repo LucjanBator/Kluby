@@ -4,11 +4,12 @@
     ViewBag.Title = "Piłkarze";
 }
 
-<h2>Pilkarze</h2>
+<h2>Piłkarze</h2>
 
 <table class="table">
     <thead>
         <tr>
+            <th>@Html.DisplayFor(model => model[0].id)</th>
             <th>@Html.DisplayFor(model => model[0].i)</th>
             <th>@Html.DisplayFor(model => model[0].n)</th>
             <th>@Html.DisplayFor(model => model[0].w)</th>
@@ -19,6 +20,7 @@
     <tbody>
     @for (int i = 1; i < Model.Count; i++) {
         <tr>
+            <td>@Html.DisplayFor(model => Model[i].id_pilkarza)</td>
             <td>@Html.DisplayFor(model => Model[i].imie)</td>
             <td>@Html.DisplayFor(model => Model[i].nazwisko)</td>
             <td>@Html.DisplayFor(model => Model[i].wiek)</td>

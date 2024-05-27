@@ -31,11 +31,12 @@ public class PilkarzeController : Controller {
             // Utwórz nowy obiekt Pilkarze z wartościami nagłówka
             var headerPilkarz = new Pilkarze
             {
-                i = headerValues[0],
-                n = headerValues[1],
-                w = headerValues[2],
-                r = headerValues[3],
-                rr = headerValues[4]
+                id = headerValues[0],
+                i = headerValues[1],
+                n = headerValues[2],
+                w = headerValues[3],
+                r = headerValues[4],
+                rr = headerValues[5]
             };
 
             // Dodaj obiekt nagłówka do listy
@@ -47,11 +48,12 @@ public class PilkarzeController : Controller {
 
                 var pilkarz = new Pilkarze
                 {
-                    imie = values[0],
-                    nazwisko = values[1],
-                    wiek = int.Parse(values[2]),
-                    Rok_dolaczenia_do_klubu = int.Parse(values[3]),
-                    Rok_zakonczenia_pracy_w_klubie = int.Parse(values[4])
+                    id_pilkarza = int.Parse(values[0]),
+                    imie = values[1],
+                    nazwisko = values[2],
+                    wiek = int.Parse(values[3]),
+                    Rok_dolaczenia_do_klubu = int.Parse(values[4]),
+                    Rok_zakonczenia_pracy_w_klubie = int.Parse(values[5])
                 };
 
                 data.Add(pilkarz);

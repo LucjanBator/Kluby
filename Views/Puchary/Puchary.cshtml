@@ -9,6 +9,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th>@Html.DisplayFor(model => model[0].id)</th>
             <th>@Html.DisplayFor(model => model[0].n)</th>
             <th>@Html.DisplayFor(model => model[0].m)</th>
             <th>@Html.DisplayFor(model => model[0].r)</th>
@@ -17,6 +18,7 @@
     <tbody>
     @for (int i = 1; i < Model.Count; i++) {
         <tr>
+            <td>@Html.DisplayFor(model => Model[i].id_pucharu)</td>
             <td>@Html.DisplayFor(model => Model[i].Nazwa_Turnieju)</td>
             <td>@Html.DisplayFor(model => Model[i].Miejsce)</td>
             <td>@Html.DisplayFor(model => Model[i].Rok_zdobycia)</td>

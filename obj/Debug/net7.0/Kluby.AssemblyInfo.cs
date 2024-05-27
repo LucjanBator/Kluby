@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kluby")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+60237a5a2f65bc035d0fbae36e1b855bc18f154d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kluby")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kluby")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

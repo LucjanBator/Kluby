@@ -27,7 +27,8 @@ public class SponsorzyController : Controller{
             // Utwórz nowy obiekt Pilkarze z wartościami nagłówka
             var headerSponsor = new Sponsorzy
             {
-                n = headerValues[0]
+                id = headerValues[0],
+                n = headerValues[1]
             };
 
             // Dodaj obiekt nagłówka do listy
@@ -39,7 +40,8 @@ public class SponsorzyController : Controller{
 
                 var sponsor = new Sponsorzy
                 {
-                    Nazwa = values[0]
+                    id_sponsora = int.Parse(values[0]),
+                    Nazwa = values[1]
                 };
 
                 data.Add(sponsor);

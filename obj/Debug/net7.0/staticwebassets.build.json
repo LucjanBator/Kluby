@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "I8spIq+JyX7TuQ+k7Jv8yvnO9UsBn+fG+8MAXlWNg5o=",
+  "Hash": "UXZPTJ+YNg0qldzd5Mzt2srx7+Mb03ti34mn+kX4rOA=",
   "Source": "Kluby",
   "BasePath": "_content/Kluby",
   "Mode": "Default",
@@ -91,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\lucja\\OneDrive\\Pulpit\\Kluby\\wwwroot\\images\\z28513222Q.jpg",
+      "SourceId": "Kluby",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lucja\\OneDrive\\Pulpit\\Kluby\\wwwroot\\",
+      "BasePath": "_content/Kluby",
+      "RelativePath": "images/z28513222Q.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\z28513222Q.jpg"
     },
     {
       "Identity": "C:\\Users\\lucja\\OneDrive\\Pulpit\\Kluby\\wwwroot\\js\\site.js",

@@ -301,3 +301,4 @@ C:\Users\lucja\OneDrive\Pulpit\Kluby\obj\Debug\net7.0\refint\Kluby.dll
 C:\Users\lucja\OneDrive\Pulpit\Kluby\obj\Debug\net7.0\Kluby.pdb
 C:\Users\lucja\OneDrive\Pulpit\Kluby\obj\Debug\net7.0\Kluby.genruntimeconfig.cache
 C:\Users\lucja\OneDrive\Pulpit\Kluby\obj\Debug\net7.0\ref\Kluby.dll
+C:\Users\lucja\OneDrive\Pulpit\Kluby\obj\Debug\net7.0\Kluby.sourcelink.json
