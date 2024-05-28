@@ -4,50 +4,45 @@
     <h1 class="text-center">Welcome, @ViewData["Username"]!</h1>
     <h2 class="text-center">Admin panel</h2>
 
-
-
-    <form form class="pure-form" method="post">
-        <table class="text-center pure-table">
-            <thead>
-            <tr>
-                <th>Username</th>
-                <th>Is admin?</th>
-                <th>Is approved?</th>
-                <br/>
-            </tr>
-            </thead>
-            @if (ViewData["AllUsers"] is not null) {
-                @foreach (Kluby.Controllers.UserData item in (ViewData["AllUsers"] as List<Kluby.Controllers.UserData>)) {
-                    <tr>
-                        <th>@item.Username</th>
-                        <th>
-                            @if (item.IsAdmin && item.Username != (String) ViewData["Username"]) {
-                                <span>
-                                    ADMIN
-                                </span>
-                            } else {
-                                <input type="checkbox" name="admin-@item.Username-@item.UserId" @if (item.IsAdmin) {
-                                    @:checked
-                                }/>
+    <div style="display: flex; justify-content: center;">
+        <form form class="pure-form" method="post" style="width: 80%;">
+            <div class="table-container">
+                <table class="text-center pure-table">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Is admin?</th>
+                            <th>Is approved?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (ViewData["AllUsers"] is not null) {
+                            @foreach (Kluby.Controllers.UserData item in (ViewData["AllUsers"] as List<Kluby.Controllers.UserData>)) {
+                                <tr>
+                                    <td>@item.Username</td>
+                                    <td>
+                                        @if (item.IsAdmin && item.Username != (String) ViewData["Username"]) {
+                                            <span>ADMIN</span>
+                                        } else {
+                                            <input type="checkbox" name="admin-@item.Username-@item.UserId" @(item.IsAdmin ? "checked" : "") />
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (item.IsAdmin) {
+                                            <span>ADMIN</span>
+                                        } else {
+                                            <input type="checkbox" name="approved-@item.Username-@item.UserId" @(item.IsApproved ? "checked" : "") />
+                                        }
+                                    </td>
+                                </tr>
                             }
-                        </th>
-                        <th>
-                            @if (item.IsAdmin) {
-                                <span>
-                                    ADMIN
-                                </span>
-                            } else {
-                                <input type="checkbox" name="approved-@item.Username-@item.UserId" @if (item.IsApproved) {
-                                    @:checked
-                                }/>
-                            }
-                        </th>
-                        <br/>
-                    </tr>
-                }
-            }
-        </table>
-        <br /><input type="submit" class="pure-button pure-button-primary" value="Save changes" asp-page-handler="Submit" />
-        <!-- <input type="submit" value="Save changes" /> -->
-    </form>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center">
+                <input type="submit" class="pure-button pure-button-primary" value="Save changes" asp-page-handler="Submit" />
+            </div>
+        </form>
+    </div>
 }

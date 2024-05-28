@@ -1,5 +1,70 @@
-﻿Id Pucharu;Nazwa turnieju;Miejsce;Rok zdobycia
-1;Puchar Polski;1;2018
-2;Liga Mistrzów;2;2019
-3;Superpuchar Europy;1;2020
-4;Mistrzostwa Krajowe;1;2021
+﻿1;Liga;Madryt;1931
+2;Liga;Madryt;1933
+3;Liga;Madryt;1954
+4;Liga;Madryt;1955
+5;Liga;Madryt;1957
+6;Liga;Madryt;1958
+7;Liga;Madryt;1961
+8;Liga;Madryt;1962
+9;Liga;Madryt;1963
+10;Liga;Madryt;1964
+11;Liga;Madryt;1965
+12;Liga;Madryt;1967
+13;Liga;Madryt;1968
+14;Liga;Madryt;1969
+15;Liga;Madryt;1972
+16;Liga;Madryt;1975
+17;Liga;Madryt;1976
+18;Liga;Madryt;1978
+19;Liga;Madryt;1979
+20;Liga;Madryt;1980
+21;Liga;Madryt;1986
+22;Liga;Madryt;1987
+23;Liga;Madryt;1988
+24;Liga;Madryt;1989
+25;Liga;Madryt;1990
+26;Liga;Madryt;1995
+27;Liga;Madryt;1997
+28;Liga;Madryt;2001
+29;Liga;Madryt;2003
+30;Liga;Madryt;2007
+31;Liga;Madryt;2008
+32;Liga;Madryt;2012
+33;Liga;Madryt;2017
+34;Liga;Madryt;2020
+35;Liga;Madryt;2022
+36;Liga Mistrzów;Kijów;1956
+37;Liga Mistrzów;Madryt;1957
+38;Liga Mistrzów;Brussel;1958
+39;Liga Mistrzów;Madryt;1959
+40;Liga Mistrzów;Glasgow;1960
+41;Liga Mistrzów;Bern;1966
+42;Liga Mistrzów;Amsterdam;1998
+43;Liga Mistrzów;Paris;2000
+44;Liga Mistrzów;Glasgow;2002
+45;Liga Mistrzów;Madryt;2014
+46;Liga Mistrzów;Cardiff;2017
+47;Liga Mistrzów;Kijów;2018
+48;Liga Mistrzów;Madryt;2022
+49;Puchar UEFA;Lizbona;1985
+50;Puchar UEFA;Madryt;1986
+51;Puchar UEFA;Madryt;1987
+52;Puchar UEFA;Budapeszt;1998
+53;Puchar UEFA;Glasgow;2002
+54;Superpuchar Europy;Paryż;2000
+55;Superpuchar Europy;Monako;2002
+56;Superpuchar Europy;Monte Carlo;2014
+57;Superpuchar Europy;Cardiff;2016
+58;Superpuchar Europy;Skopje;2017
+59;Superpuchar Europy;Madryt;2018
+60;Superpuchar Europy;Istanbul;2022
+61;Puchar Interkontynentalny;Bruksela;1960
+62;Puchar Interkontynentalny;Monte Carlo;1998
+63;Puchar Interkontynentalny;Jokohama;2002
+64;Puchar Interkontynentalny;Yokohama;2014
+65;Klubowe mistrzostwo świata;Abu Zabi;2014
+66;Klubowe mistrzostwo świata;Abu Zabi;2016
+67;Klubowe mistrzostwo świata;Abu Zabi;2017
+68;Klubowe mistrzostwo świata;Abu Zabi;2018
+69;Klubowe mistrzostwo świata;Katar;2019
+70;Klubowe mistrzostwo świata;Katar;2022

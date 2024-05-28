@@ -44,6 +44,7 @@
                 <a asp-action="Sponsorzy" asp-route-sortOrder="name_asc">Nazwa ▲</a> |
                 <a asp-action="Sponsorzy" asp-route-sortOrder="name_desc">Nazwa ▼</a>
             </th>
+            <th>Akcje</th>
         </tr>
     </thead>
     <tbody>
@@ -52,7 +53,22 @@
             <tr>
                 <td>@sponsor.id_sponsora</td>
                 <td>@sponsor.Nazwa</td>
+                <td>
+                    <form asp-action="DeleteSponsor" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@sponsor.id_sponsora" />
+                        <button type="submit">Usuń</button>
+                    </form>
+                </td>
             </tr>
         }
     </tbody>
 </table>
+
+<h2>Dodaj nowego sponsora</h2>
+<form asp-action="AddSponsor" method="post" class="form-container">
+    <div>
+        <label>Nazwa:</label>
+        <input type="text" name="Nazwa" required />
+    </div>
+    <button type="submit">Dodaj</button>
+</form>

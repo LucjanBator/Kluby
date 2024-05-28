@@ -14,7 +14,6 @@ namespace Kluby.Controllers
             {
                 ViewData["Username"] = "";
                 ViewData["IsAdmin"] = "";
-
                 return;
             }
 
@@ -50,6 +49,19 @@ namespace Kluby.Controllers
             return data;
         }
 
+        private void WriteCsvFile(string filePath, List<Puchary> data, char separator)
+        {
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                writer.WriteLine("id_pucharu;Nazwa_Turnieju;Miejsce;Rok_zdobycia");
+
+                foreach (var puchar in data)
+                {
+                    writer.WriteLine($"{puchar.id_pucharu}{separator}{puchar.Nazwa_Turnieju}{separator}{puchar.Miejsce}{separator}{puchar.Rok_zdobycia}");
+                }
+            }
+        }
+
         [Route("Puchary/")]
         public IActionResult Puchary(string sortOrder)
         {
@@ -77,6 +89,42 @@ namespace Kluby.Controllers
             };
 
             return View(data);
+        }
+
+        [HttpPost]
+        public IActionResult AddPuchar(Puchary puchar)
+        {
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "Excel", "Puchary.csv");
+
+            // Append the new puchar to the CSV file
+            using (StreamWriter writer = new StreamWriter(path, true))
+            {
+                writer.WriteLine($"{puchar.id_pucharu};{puchar.Nazwa_Turnieju};{puchar.Miejsce};{puchar.Rok_zdobycia}");
+            }
+
+            // Redirect back to the Puchary list
+            return RedirectToAction("Puchary");
+        }
+
+        [HttpPost]
+        public IActionResult DeletePuchar(int id)
+        {
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "Excel", "Puchary.csv");
+            List<Puchary> data = new List<Puchary>();
+
+            if (System.IO.File.Exists(path))
+            {
+                data = ReadCsvFile(path, ';');
+                var pucharToRemove = data.FirstOrDefault(p => p.id_pucharu == id);
+                if (pucharToRemove != null)
+                {
+                    data.Remove(pucharToRemove);
+                    WriteCsvFile(path, data, ';');
+                }
+            }
+
+            // Redirect back to the Puchary list
+            return RedirectToAction("Puchary");
         }
     }
 }

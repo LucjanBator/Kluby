@@ -31,6 +31,34 @@
     a:hover {
         text-decoration: underline;
     }
+    .form-container {
+        max-width: 600px;
+        margin: 20px 0;
+    }
+    .form-container div {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .form-container label {
+        width: 150px;
+        margin-right: 10px;
+    }
+    .form-container input {
+        flex: 1;
+        padding: 5px;
+    }
+    .form-container button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #37c754;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+    .form-container button:hover {
+        background-color: #2e9e44;
+    }
 </style>
 
 <table>
@@ -60,6 +88,7 @@
                 <a asp-action="Pilkarze" asp-route-sortOrder="year_end_asc">Rok zakończenia ▲</a> |
                 <a asp-action="Pilkarze" asp-route-sortOrder="year_end_desc">Rok zakończenia ▼</a>
             </th>
+            <th>Akcje</th>
         </tr>
     </thead>
     <tbody>
@@ -72,7 +101,39 @@
                 <td>@pilkarz.wiek</td>
                 <td>@pilkarz.Rok_dolaczenia_do_klubu</td>
                 <td>@pilkarz.Rok_zakonczenia_pracy_w_klubie</td>
+                <td>
+                    <form asp-action="DeletePilkarz" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@pilkarz.id_pilkarza" />
+                        <button type="submit">Usuń</button>
+                    </form>
+                </td>
             </tr>
         }
     </tbody>
 </table>
+
+<h2>Dodaj nowego piłkarza</h2>
+
+<form asp-action="AddPilkarz" method="post" class="form-container">
+    <div>
+        <label>Imię:</label>
+        <input type="text" name="imie" required />
+    </div>
+    <div>
+        <label>Nazwisko:</label>
+        <input type="text" name="nazwisko" required />
+    </div>
+    <div>
+        <label>Wiek:</label>
+        <input type="number" name="wiek" required />
+    </div>
+    <div>
+        <label>Rok dołączenia:</label>
+        <input type="number" name="Rok_dolaczenia_do_klubu" required />
+    </div>
+    <div>
+        <label>Rok zakończenia:</label>
+        <input type="number" name="Rok_zakonczenia_pracy_w_klubie" required />
+    </div>
+    <button type="submit">Dodaj</button>
+</form>

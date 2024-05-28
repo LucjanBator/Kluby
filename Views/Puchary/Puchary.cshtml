@@ -52,6 +52,7 @@
                 <a asp-action="Puchary" asp-route-sortOrder="year_asc">Rok Zdobycia ▲</a> |
                 <a asp-action="Puchary" asp-route-sortOrder="year_desc">Rok Zdobycia ▼</a>
             </th>
+            <th>Akcje</th>
         </tr>
     </thead>
     <tbody>
@@ -62,7 +63,33 @@
                 <td>@puchar.Nazwa_Turnieju</td>
                 <td>@puchar.Miejsce</td>
                 <td>@puchar.Rok_zdobycia</td>
+                <td>
+                    <form asp-action="DeletePuchar" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@puchar.id_pucharu" />
+                        <button type="submit">Usuń</button>
+                    </form>
+                </td>
             </tr>
         }
     </tbody>
 </table>
+
+<h2>Dodaj nowy puchar</h2>
+<form asp-action="AddPuchar" method="post" class="form-container">
+    <div style="display: flex; flex-direction: column; width: 300px;">
+        <div style="margin-bottom: 10px;">
+            <label style="width: 100px; display: inline-block;">Nazwa</label>
+            <input type="text" name="Nazwa_Turnieju" required style="width: calc(100% - 110px);" />
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label style="width: 100px; display: inline-block;">Miejsce:</label>
+            <input type="text" name="Miejsce" required style="width: calc(100% - 110px);" />
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label style="width: 100px; display: inline-block;">Rok Zdobycia:</label>
+            <input type="number" name="Rok_zdobycia" required style="width: calc(100% - 110px);" />
+        </div>
+        <button type="submit" style="width: 100px;">Dodaj</button>
+    </div>
+</form>
+

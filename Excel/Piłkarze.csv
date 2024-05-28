@@ -1,5 +1,71 @@
-﻿Id Piłkarza;Imię;Nazwisko;Wiek;Rok dołączenia do klubu;Rok zakończenia pracy w klubie
-1;Jan;Kowalski;28;2015;2020
-2;Adam;Nowak;30;2017;2023
-3;Piotr;Wiśniewski;25;2019;2024
-4;Michał;Lewandowski;22;2020;2025
+id_pilkarza;imie;nazwisko;wiek;Rok_dolaczenia_do_klubu;Rok_zakonczenia_pracy_w_klubie
+1;Karim;Benzema;34;2009;2023
+2;Sergio;Ramos;35;2005;2021
+3;Cristiano;Ronaldo;36;2009;2018
+4;Luka;Modrić;36;2012;2022
+5;Gareth;Bale;32;2013;2022
+6;Thibaut;Courtois;29;2018;2024
+7;Toni;Kroos;31;2014;2023
+8;Eden;Hazard;30;2019;2024
+9;Vinícius Júnior;De Oliveira;21;2018;2029
+10;Casemiro;Henrique;33;2023;2023
+11;Raphaël;Varane;28;2011;2022
+12;Marcelo;Da Silva;37;2007;2022
+13;Marco;Asensio;25;2014;2023
+14;Isco;Alacorn;35;2013;2020
+15;Dani;Carvajal;29;2013;2024
+16;Ferland;Mendy;26;2019;2024
+17;Lucas;Vázquez;30;2015;2021
+18;Federico;Valverde;23;2015;2025
+19;Rodrygo;Goes;20;2019;2025
+20;Álvaro;Odriozola;25;2018;2024
+21;Nacho;Fernández;31;2022;2026
+22;Andriy;Lunin;22;2018;2023
+23;Eder;Militão;23;2019;2024
+24;Lucas;Silva;28;2015;2022
+25;Brahim;Díaz;21;2019;2023
+26;Jesús;Vallejo;24;2015;2023
+27;Alphonse;Areola;28;2019;2020
+28;Álvaro;Tejero;24;2014;2020
+29;Javi;Hernández;24;2014;2020
+30;Achraf;Hakimi;22;2017;2020
+31;Sergio;Reguilón;24;2015;2020
+32;Diego;Altube;24;2014;2020
+33;Borja;Mayoral;24;2015;2020
+34;Óscar;Rodríguez;24;2013;2020
+35;Takefusa;Kubo;20;2019;2020
+36;Martin;Ödegaard;22;2015;2020
+37;Hugo;Duro;21;2016;2020
+38;Dani;Gómez;23;2014;2020
+39;Sergio;López;24;2012;2020
+40;Javi;Sánchez;25;2014;2020
+41;Álvaro;Fidalgo;24;2012;2020
+42;Fran;García;24;2013;2020
+43;Rubén;de la Red;36;2000;2010
+44;Luis;Milla;26;2000;2007
+45;Víctor;Fernández;36;1979;1986
+46;Esteban;Cambiaso;39;1968;1974
+47;Alejandro;Blanco;42;1979;1981
+48;Manuel;Sanchís;59;1983;2001
+49;Francisco;Bonet;55;1961;1971
+50;José;Santamaría;89;1957;1966
+51;Paco;Gento;88;1953;1971
+52;Santiago;Bernabéu;82;1911;1927
+53;Emilio;Butragueño;58;1984;1995
+54;Raúl;González;43;1994;2010
+55;Fernando;Hierro;53;1989;2003
+56;Fernando;Redondo;52;1994;2000
+57;Alfredo;Di Stéfano;88;1953;1964
+58;Michel;González;59;1981;1996
+59;Iker;Casillas;40;1999;2015
+60;Roberto;Carlos;48;1996;2007
+61;Steve;McManaman;49;1999;2003
+62;David;Beckham;46;2003;2007
+63;Zinedine;Zidane;49;2001;2006
+64;Luís;Figo;48;2000;2005
+65;Ricardo;Kaká;39;2009;2013
+66;Fabio;Cannavaro;48;2006;2009
+67;Gonzalo;Higuaín;33;2007;2013
+68;Angel;Di María;33;2010;2014
+69;Mesut;Öezil;33;2010;2013
+70;Kylian;Mbappe;26;2024;2030

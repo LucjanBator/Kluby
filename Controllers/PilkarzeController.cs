@@ -53,6 +53,18 @@ namespace Kluby.Controllers
             return data;
         }
 
+        public void WriteCsvFile(string filePath, List<Pilkarze> data, char separator)
+        {
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                writer.WriteLine("id_pilkarza;imie;nazwisko;wiek;Rok_dolaczenia_do_klubu;Rok_zakonczenia_pracy_w_klubie");
+                foreach (var pilkarz in data)
+                {
+                    writer.WriteLine($"{pilkarz.id_pilkarza}{separator}{pilkarz.imie}{separator}{pilkarz.nazwisko}{separator}{pilkarz.wiek}{separator}{pilkarz.Rok_dolaczenia_do_klubu}{separator}{pilkarz.Rok_zakonczenia_pracy_w_klubie}");
+                }
+            }
+        }
+
         [Route("Pilkarze/")]
         public IActionResult Pilkarze(string sortOrder)
         {
@@ -84,6 +96,49 @@ namespace Kluby.Controllers
             };
 
             return View(data);
+        }
+
+        [HttpPost]
+        [Route("Pilkarze/Add")]
+        public IActionResult AddPilkarz(Pilkarze pilkarz)
+        {
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "Excel", "Piłkarze.csv");
+            List<Pilkarze> data = new List<Pilkarze>();
+
+            if (System.IO.File.Exists(path))
+            {
+                data = ReadCsvFile(path, ';');
+            }
+
+            int newId = data.Any() ? data.Max(p => p.id_pilkarza) + 1 : 1;
+            pilkarz.id_pilkarza = newId;
+
+            data.Add(pilkarz);
+            WriteCsvFile(path, data, ';');
+
+            return RedirectToAction("Pilkarze");
+        }
+
+        [HttpPost]
+        [Route("Pilkarze/Delete")]
+        public IActionResult DeletePilkarz(int id)
+        {
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "Excel", "Piłkarze.csv");
+            List<Pilkarze> data = new List<Pilkarze>();
+
+            if (System.IO.File.Exists(path))
+            {
+                data = ReadCsvFile(path, ';');
+            }
+
+            var pilkarzToRemove = data.FirstOrDefault(p => p.id_pilkarza == id);
+            if (pilkarzToRemove != null)
+            {
+                data.Remove(pilkarzToRemove);
+                WriteCsvFile(path, data, ';');
+            }
+
+            return RedirectToAction("Pilkarze");
         }
     }
 }

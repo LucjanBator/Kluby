@@ -4,6 +4,7 @@ using Kluby.Models;
 using System.Text;
 using CsvHelper;
 using CsvHelper.Configuration;
+using System.IO;
 
 namespace Kluby.Controllers
 {
@@ -27,7 +28,6 @@ namespace Kluby.Controllers
 
             using (StreamReader reader = new StreamReader(filePath))
             {
-                // Odczytaj nagłówek, ale go nie dodawaj do listy
                 string headerLine = reader.ReadLine();
 
                 while (!reader.EndOfStream)
@@ -52,6 +52,18 @@ namespace Kluby.Controllers
             return data;
         }
 
+        public void WriteCsvFile(string filePath, List<Trenerzy> data, char separator)
+        {
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                writer.WriteLine("id_trenera;imie;nazwisko;wiek;Rok_dolaczenia_do_klubu;Rok_zakonczenia_pracy_w_klubie");
+                foreach (var trener in data)
+                {
+                    writer.WriteLine($"{trener.id_trenera}{separator}{trener.imie}{separator}{trener.nazwisko}{separator}{trener.wiek}{separator}{trener.Rok_dolaczenia_do_klubu}{separator}{trener.Rok_zakonczenia_pracy_w_klubie}");
+                }
+            }
+        }
+
         [Route("Trenerzy/")]
         public IActionResult Trenerzy(string sortOrder)
         {
@@ -64,7 +76,6 @@ namespace Kluby.Controllers
                 data = ReadCsvFile(path, ';');
             }
 
-            // Sortowanie danych (bez nagłówka)
             data = sortOrder switch
             {
                 "id_asc" => data.OrderBy(t => t.id_trenera).ToList(),
@@ -83,6 +94,49 @@ namespace Kluby.Controllers
             };
 
             return View(data);
+        }
+
+        [HttpPost]
+        [Route("Trenerzy/Add")]
+        public IActionResult AddTrener(Trenerzy trener)
+        {
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "Excel", "Trenerzy.csv");
+            List<Trenerzy> data = new List<Trenerzy>();
+
+            if (System.IO.File.Exists(path))
+            {
+                data = ReadCsvFile(path, ';');
+            }
+
+            int newId = data.Any() ? data.Max(t => t.id_trenera) + 1 : 1;
+            trener.id_trenera = newId;
+
+            data.Add(trener);
+            WriteCsvFile(path, data, ';');
+
+            return RedirectToAction("Trenerzy");
+        }
+
+        [HttpPost]
+        [Route("Trenerzy/Delete")]
+        public IActionResult DeleteTrener(int id)
+        {
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "Excel", "Trenerzy.csv");
+            List<Trenerzy> data = new List<Trenerzy>();
+
+            if (System.IO.File.Exists(path))
+            {
+                data = ReadCsvFile(path, ';');
+            }
+
+            var trenerToRemove = data.FirstOrDefault(t => t.id_trenera == id);
+            if (trenerToRemove != null)
+            {
+                data.Remove(trenerToRemove);
+                WriteCsvFile(path, data, ';');
+            }
+
+            return RedirectToAction("Trenerzy");
         }
     }
 }

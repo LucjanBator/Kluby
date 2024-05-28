@@ -1,5 +1,17 @@
-﻿Id Trenera;Imię;Nazwisko;Wiek;Rok dołączenia do klubu;Rok zakończenia pracy w klubie
-1;Robert;Zieliński;45;2010;2018
-2;Tomasz;Kamiński;50;2018;2022
-3;Marcin;Wróblewski;40;2022;2024
-4;Paweł;Kaczmarek;42;2024;2026
+id_trenera;imie;nazwisko;wiek;Rok_dolaczenia_do_klubu;Rok_zakonczenia_pracy_w_klubie
+1;Zinedine;Zidane;49;2016;2018
+2;Zinedine;Zidane;49;2019;2021
+3;Zinedine;Zidane;49;2021;2023
+4;Carlo;Ancelotti;62;2013;2015
+5;Carlo;Ancelotti;62;2021;2025
+6;Rafael;Benítez;61;2015;2016
+7;Jose;Mourinho;59;2010;2013
+8;Jose;Mourinho;59;2013;2013
+9;Manuel;Pellegrini;68;2009;2010
+10;Bernd;Schuster;61;2007;2008
+11;Fabio;Capello;75;2006;2007
+12;Vicente;del Bosque;71;1999;2003
+13;Guus;Hiddink;75;1998;1999
+14;Jupp;Heynckes;76;1997;1998
+15;Radomir;Antić;73;1991;1992
+16;Leo;Beenhakker;80;1986;1989

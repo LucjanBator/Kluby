@@ -60,6 +60,7 @@
                 <a asp-action="Trenerzy" asp-route-sortOrder="year_end_asc">Rok zakończenia ▲</a> |
                 <a asp-action="Trenerzy" asp-route-sortOrder="year_end_desc">Rok zakończenia ▼</a>
             </th>
+            <th>Akcje</th>
         </tr>
     </thead>
     <tbody>
@@ -72,7 +73,42 @@
                 <td>@trener.wiek</td>
                 <td>@trener.Rok_dolaczenia_do_klubu</td>
                 <td>@trener.Rok_zakonczenia_pracy_w_klubie</td>
+                <td>
+                    <form asp-action="DeleteTrener" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@trener.id_trenera" />
+                        <button type="submit">Usuń</button>
+                    </form>
+                </td>
             </tr>
         }
     </tbody>
 </table>
+
+<h2>Dodaj Nowego Trenera</h2>
+
+<form asp-action="AddTrener" method="post" class="form-container">
+    <div style="display: flex; flex-direction: column; width: 300px;">
+        <div style="margin-bottom: 10px;">
+            <label for="imie" style="width: 100px; display: inline-block;">Imię:</label>
+            <input type="text" id="imie" name="imie" required style="width: calc(100% - 110px);" />
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label for="nazwisko" style="width: 100px; display: inline-block;">Nazwisko:</label>
+            <input type="text" id="nazwisko" name="nazwisko" required style="width: calc(100% - 110px);" />
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label for="wiek" style="width: 100px; display: inline-block;">Wiek:</label>
+            <input type="number" id="wiek" name="wiek" required style="width: calc(100% - 110px);" />
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label for="Rok_dolaczenia_do_klubu" style="width: 100px; display: inline-block;">Rok dołączenia:</label>
+            <input type="number" id="Rok_dolaczenia_do_klubu" name="Rok_dolaczenia_do_klubu" required style="width: calc(100% - 110px);" />
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label for="Rok_zakonczenia_pracy_w_klubie" style="width: 100px; display: inline-block;">Rok zakończenia:</label>
+            <input type="number" id="Rok_zakonczenia_pracy_w_klubie" name="Rok_zakonczenia_pracy_w_klubie" required style="width: calc(100% - 110px);" />
+        </div>
+        <button type="submit" style="width: 100px;">Dodaj</button>
+    </div>
+</form>
+
