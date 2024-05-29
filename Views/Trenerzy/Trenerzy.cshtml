@@ -60,7 +60,9 @@
                 <a asp-action="Trenerzy" asp-route-sortOrder="year_end_asc">Rok zakończenia ▲</a> |
                 <a asp-action="Trenerzy" asp-route-sortOrder="year_end_desc">Rok zakończenia ▼</a>
             </th>
+            @if (ViewBag.IsAdmin is not null && ViewBag.IsAdmin == "True") {
             <th>Akcje</th>
+            }
         </tr>
     </thead>
     <tbody>
@@ -73,16 +75,19 @@
                 <td>@trener.wiek</td>
                 <td>@trener.Rok_dolaczenia_do_klubu</td>
                 <td>@trener.Rok_zakonczenia_pracy_w_klubie</td>
+                @if (ViewBag.IsAdmin is not null && ViewBag.IsAdmin == "True") {
                 <td>
                     <form asp-action="DeleteTrener" method="post" style="display:inline;">
                         <input type="hidden" name="id" value="@trener.id_trenera" />
                         <button type="submit">Usuń</button>
                     </form>
                 </td>
+                }
             </tr>
         }
     </tbody>
 </table>
+@if (ViewBag.IsAdmin is not null && ViewBag.IsAdmin == "True") {
 
 <h2>Dodaj Nowego Trenera</h2>
 
@@ -111,4 +116,4 @@
         <button type="submit" style="width: 100px;">Dodaj</button>
     </div>
 </form>
-
+}

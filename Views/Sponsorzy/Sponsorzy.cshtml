@@ -44,7 +44,9 @@
                 <a asp-action="Sponsorzy" asp-route-sortOrder="name_asc">Nazwa ▲</a> |
                 <a asp-action="Sponsorzy" asp-route-sortOrder="name_desc">Nazwa ▼</a>
             </th>
+            @if (ViewBag.IsAdmin is not null && ViewBag.IsAdmin == "True") {
             <th>Akcje</th>
+            }
         </tr>
     </thead>
     <tbody>
@@ -53,16 +55,19 @@
             <tr>
                 <td>@sponsor.id_sponsora</td>
                 <td>@sponsor.Nazwa</td>
+                @if (ViewBag.IsAdmin is not null && ViewBag.IsAdmin == "True") {
                 <td>
                     <form asp-action="DeleteSponsor" method="post" style="display:inline;">
                         <input type="hidden" name="id" value="@sponsor.id_sponsora" />
                         <button type="submit">Usuń</button>
                     </form>
                 </td>
+                }
             </tr>
         }
     </tbody>
 </table>
+@if (ViewBag.IsAdmin is not null && ViewBag.IsAdmin == "True") {
 
 <h2>Dodaj nowego sponsora</h2>
 <form asp-action="AddSponsor" method="post" class="form-container">
@@ -72,3 +77,4 @@
     </div>
     <button type="submit">Dodaj</button>
 </form>
+}

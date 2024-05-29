@@ -88,7 +88,9 @@
                 <a asp-action="Pilkarze" asp-route-sortOrder="year_end_asc">Rok zakończenia ▲</a> |
                 <a asp-action="Pilkarze" asp-route-sortOrder="year_end_desc">Rok zakończenia ▼</a>
             </th>
+            @if (ViewBag.IsAdmin is not null && ViewBag.IsAdmin == "True") {
             <th>Akcje</th>
+            }
         </tr>
     </thead>
     <tbody>
@@ -101,16 +103,19 @@
                 <td>@pilkarz.wiek</td>
                 <td>@pilkarz.Rok_dolaczenia_do_klubu</td>
                 <td>@pilkarz.Rok_zakonczenia_pracy_w_klubie</td>
+                @if (ViewBag.IsAdmin is not null && ViewBag.IsAdmin == "True") {
                 <td>
                     <form asp-action="DeletePilkarz" method="post" style="display:inline;">
                         <input type="hidden" name="id" value="@pilkarz.id_pilkarza" />
                         <button type="submit">Usuń</button>
                     </form>
                 </td>
+                }
             </tr>
         }
     </tbody>
 </table>
+@if (ViewBag.IsAdmin is not null && ViewBag.IsAdmin == "True") {
 
 <h2>Dodaj nowego piłkarza</h2>
 
@@ -137,3 +142,4 @@
     </div>
     <button type="submit">Dodaj</button>
 </form>
+}

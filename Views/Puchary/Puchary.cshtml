@@ -52,7 +52,9 @@
                 <a asp-action="Puchary" asp-route-sortOrder="year_asc">Rok Zdobycia ▲</a> |
                 <a asp-action="Puchary" asp-route-sortOrder="year_desc">Rok Zdobycia ▼</a>
             </th>
+            @if (ViewBag.IsAdmin is not null && ViewBag.IsAdmin == "True") {
             <th>Akcje</th>
+            }
         </tr>
     </thead>
     <tbody>
@@ -63,16 +65,19 @@
                 <td>@puchar.Nazwa_Turnieju</td>
                 <td>@puchar.Miejsce</td>
                 <td>@puchar.Rok_zdobycia</td>
+                @if (ViewBag.IsAdmin is not null && ViewBag.IsAdmin == "True") {
                 <td>
                     <form asp-action="DeletePuchar" method="post" style="display:inline;">
                         <input type="hidden" name="id" value="@puchar.id_pucharu" />
                         <button type="submit">Usuń</button>
                     </form>
                 </td>
+                }
             </tr>
         }
     </tbody>
 </table>
+@if (ViewBag.IsAdmin is not null && ViewBag.IsAdmin == "True") {
 
 <h2>Dodaj nowy puchar</h2>
 <form asp-action="AddPuchar" method="post" class="form-container">
@@ -92,4 +97,4 @@
         <button type="submit" style="width: 100px;">Dodaj</button>
     </div>
 </form>
-
+}
